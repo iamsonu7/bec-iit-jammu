@@ -1,0 +1,48 @@
+name: Forge 360 CI
+
+on:
+  push:
+    paths: ["forge360/**", ".github/workflows/forge360-ci.yml"]
+  pull_request:
+    paths: ["forge360/**", ".github/workflows/forge360-ci.yml"]
+
+defaults:
+  run:
+    working-directory: forge360
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: forge360/package-lock.json
+      - run: npm ci
+      - name: Skill Vault seed is up to date
+        run: npm run seed:build && git diff --exit-code supabase/seed.sql
+      - run: npm run typecheck
+      - run: npm run build
+
+  database:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_PASSWORD: postgres
+        ports: ["5432:5432"]
+        options: --health-cmd pg_isready --health-interval 5s --health-retries 10
+    env:
+      PGHOST: localhost
+      PGUSER: postgres
+      PGPASSWORD: postgres
+    steps:
+      - uses: actions/checkout@v4
+      - name: Migration, seed and RLS tests
+        run: |
+          for f in supabase/tests/supabase-stub.sql supabase/migrations/0001_init.sql supabase/seed.sql supabase/tests/rls.sql; do
+            psql -v ON_ERROR_STOP=1 -q -f "$f"
+          done
