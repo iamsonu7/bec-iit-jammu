@@ -6,6 +6,10 @@ entrepreneurship club (E-Cell) of IIT Jammu.
 Plain HTML, CSS and JavaScript. No build step, no dependencies, no npm install.
 Open `index.html` in a browser and it works.
 
+> **ForgeX** — the skills-to-ideas platform from the ForgeX Dev Guide — lives in
+> [`forgex/`](forgex/README.md). It's a separate Next.js + Supabase app; the notes below
+> are about the static club website.
+
 ---
 
 ## Quick start
