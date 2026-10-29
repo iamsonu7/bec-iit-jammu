@@ -1,0 +1,52 @@
+{
+  "_readme": "Skill Vault v0 (Dev Guide §6 L2). Source of truth for skills and questions. Edit here, then run `npm run seed:build` to regenerate supabase/seed.sql. Each skill gets 4 questions: tools (multi), proof link, the 1-hour test (Yes / With help / No), and real-world delivery (+ link). Skills without `tools` get 3.",
+  "skills": [
+    { "id": "python-scripting", "name": "Python scripting", "category": "Tech", "one_hour_test": "write a script that cleans a messy CSV and outputs a summary", "tools": ["Python", "pandas", "Jupyter", "requests", "Git"] },
+    { "id": "web-frontend", "name": "Web frontend", "category": "Tech", "one_hour_test": "build a responsive landing page from a rough sketch", "tools": ["HTML/CSS", "JavaScript", "React", "Tailwind", "Figma handoff"] },
+    { "id": "backend-apis", "name": "Backend & APIs", "category": "Tech", "one_hour_test": "build a small REST API with one database table", "tools": ["Node.js", "Python (FastAPI/Django)", "SQL", "Firebase/Supabase", "Postman"] },
+    { "id": "mobile-apps", "name": "Mobile apps", "category": "Tech", "one_hour_test": "build a two-screen app prototype that runs on a phone", "tools": ["Flutter", "React Native", "Kotlin", "Swift", "Expo"] },
+    { "id": "data-analysis", "name": "Data analysis", "category": "Tech", "one_hour_test": "turn a raw dataset into three charts with one clear insight", "tools": ["Excel", "Python", "SQL", "Power BI", "Tableau"] },
+    { "id": "no-code-building", "name": "No-code building", "category": "Tech", "one_hour_test": "launch a working signup form with an automated follow-up email", "tools": ["Notion", "Airtable", "Zapier/Make", "Glide", "Webflow"] },
+    { "id": "ml-prototyping", "name": "ML prototyping", "category": "Tech", "one_hour_test": "train a baseline model on a given dataset and report accuracy", "tools": ["scikit-learn", "PyTorch", "TensorFlow", "Hugging Face", "Colab"] },
+    { "id": "hardware-prototyping", "name": "Hardware prototyping", "category": "Tech", "one_hour_test": "wire a sensor to a microcontroller and log its readings", "tools": ["Arduino", "ESP32", "Raspberry Pi", "Soldering", "CAD (Fusion/SolidWorks)"] },
+
+    { "id": "graphic-design", "name": "Graphic design", "category": "Design", "one_hour_test": "make a pitch-deck cover", "tools": ["Figma", "Canva", "Photoshop", "Illustrator", "Affinity"] },
+    { "id": "ui-design", "name": "UI design", "category": "Design", "one_hour_test": "design one mobile app screen from a written brief", "tools": ["Figma", "Adobe XD", "Framer", "Penpot"] },
+    { "id": "ux-research", "name": "UX research", "category": "Design", "one_hour_test": "write a 5-question user interview script and a test plan", "tools": ["Google Forms", "Maze", "Miro", "Notion"] },
+    { "id": "brand-identity", "name": "Brand identity", "category": "Design", "one_hour_test": "sketch three logo directions with a colour palette", "tools": ["Illustrator", "Figma", "Procreate", "Canva"] },
+    { "id": "product-design-3d", "name": "3D / product design", "category": "Design", "one_hour_test": "model a simple product concept and render one view", "tools": ["Blender", "Fusion 360", "SolidWorks", "SketchUp", "KeyShot"] },
+
+    { "id": "video-editing", "name": "Video editing", "category": "Content", "one_hour_test": "cut a 60-second reel from raw footage", "tools": ["Premiere Pro", "DaVinci Resolve", "CapCut", "Final Cut", "After Effects"] },
+    { "id": "copywriting", "name": "Copywriting", "category": "Content", "one_hour_test": "write landing-page copy: headline, three benefits and a call to action", "tools": ["Google Docs", "Notion", "Grammarly", "Hemingway"] },
+    { "id": "content-writing", "name": "Content & blog writing", "category": "Content", "one_hour_test": "write a 600-word explainer on a topic you are given", "tools": ["Google Docs", "WordPress", "Medium", "Substack"] },
+    { "id": "photography", "name": "Photography", "category": "Content", "one_hour_test": "shoot and edit five product photos usable on a website", "tools": ["DSLR/Mirrorless", "Phone camera", "Lightroom", "Snapseed"] },
+    { "id": "podcast-audio", "name": "Podcast & audio", "category": "Content", "one_hour_test": "record, clean and export a 3-minute audio clip", "tools": ["Audacity", "Adobe Audition", "GarageBand", "Riverside"] },
+    { "id": "translation", "name": "Translation & localisation", "category": "Content", "one_hour_test": "translate a one-page product brief into another language", "tools": ["Hindi", "Regional language", "Google Docs", "DeepL"] },
+
+    { "id": "social-media", "name": "Social media marketing", "category": "Marketing", "one_hour_test": "plan a week of posts for a new brand with hooks and captions", "tools": ["Instagram", "LinkedIn", "X", "YouTube", "Meta Business Suite"] },
+    { "id": "performance-ads", "name": "Performance ads", "category": "Marketing", "one_hour_test": "set up a small test campaign with targeting and two ad variants", "tools": ["Meta Ads", "Google Ads", "LinkedIn Ads", "GA4"] },
+    { "id": "seo", "name": "SEO", "category": "Marketing", "one_hour_test": "audit a website and list the top five fixes", "tools": ["Google Search Console", "Ahrefs/Semrush", "GA4", "Screaming Frog"] },
+    { "id": "community-building", "name": "Community building", "category": "Marketing", "one_hour_test": "draft a launch plan to get a new community to its first 50 members", "tools": ["WhatsApp", "Discord", "Telegram", "Instagram"] },
+    { "id": "market-research", "name": "Market research", "category": "Business", "one_hour_test": "size a market and map five competitors on one page", "tools": ["Excel/Sheets", "Statista", "Google Trends", "Crunchbase"] },
+
+    { "id": "field-sales", "name": "Field sales", "category": "Business", "one_hour_test": "pitch a product to three real shops or people and record the objections", "tools": ["CRM (HubSpot/Zoho)", "WhatsApp Business", "Sheets"] },
+    { "id": "business-development", "name": "Business development", "category": "Business", "one_hour_test": "write a partnership pitch email and a list of ten target partners", "tools": ["LinkedIn", "Apollo/Hunter", "Gmail", "Sheets"] },
+    { "id": "pitch-decks", "name": "Pitch decks", "category": "Business", "one_hour_test": "turn a one-page idea into a 10-slide investor deck outline", "tools": ["PowerPoint", "Google Slides", "Canva", "Pitch"] },
+    { "id": "operations", "name": "Operations", "category": "Business", "one_hour_test": "map an order-to-delivery process and mark three bottlenecks", "tools": ["Sheets", "Notion", "Trello", "Miro"] },
+    { "id": "event-management", "name": "Event management", "category": "Business", "one_hour_test": "plan a 100-person event: run of show, budget and checklist", "tools": ["Sheets", "Notion", "Luma/Eventbrite", "Canva"] },
+    { "id": "product-management", "name": "Product management", "category": "Business", "one_hour_test": "write a one-page PRD with user stories and success metrics", "tools": ["Notion", "Jira", "Figma", "Miro"] },
+
+    { "id": "excel-modelling", "name": "Excel modelling", "category": "Finance", "one_hour_test": "build a 12-month revenue and cost model with three scenarios", "tools": ["Excel", "Google Sheets", "Power Query", "Pivot tables"] },
+    { "id": "bookkeeping", "name": "Bookkeeping", "category": "Finance", "one_hour_test": "record a month of transactions and produce a simple P&L", "tools": ["Tally", "Zoho Books", "QuickBooks", "Excel"] },
+    { "id": "gst-compliance", "name": "GST & tax basics", "category": "Finance", "one_hour_test": "explain the GST registration and invoicing steps for a small startup", "tools": ["GST portal", "ClearTax", "Tally"] },
+    { "id": "fundraising-research", "name": "Grants & fundraising research", "category": "Finance", "one_hour_test": "find five grants or programmes a given startup qualifies for", "tools": ["Startup India", "BIRAC", "Crunchbase", "Sheets"] },
+
+    { "id": "legal-drafting", "name": "Legal drafting", "category": "Law", "one_hour_test": "draft a two-page founder–contributor agreement or NDA", "tools": ["MS Word", "Google Docs", "SCC Online", "Manupatra"] },
+    { "id": "ip-research", "name": "IP & trademark research", "category": "Law", "one_hour_test": "run a trademark search for a brand name and summarise the risk", "tools": ["IP India search", "WIPO", "Google Patents"] },
+    { "id": "policy-research", "name": "Policy & regulatory research", "category": "Law", "one_hour_test": "summarise the rules a startup in a given sector must follow", "tools": ["Gazette/PIB", "SCC Online", "Google Scholar"] },
+
+    { "id": "clinical-research", "name": "Clinical research", "category": "Health & Science", "one_hour_test": "summarise five papers on a health question into evidence and gaps", "tools": ["PubMed", "Zotero", "Cochrane", "Excel"] },
+    { "id": "lab-work", "name": "Lab & experiment design", "category": "Health & Science", "one_hour_test": "design an experiment protocol to test a product claim", "tools": ["Wet lab", "Minitab/R", "LabArchives", "Excel"] },
+    { "id": "public-speaking", "name": "Public speaking & pitching", "category": "Business", "one_hour_test": "prepare and deliver a 3-minute pitch on an idea you are given" }
+  ]
+}

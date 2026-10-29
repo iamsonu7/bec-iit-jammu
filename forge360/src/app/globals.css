@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+/*
+ * Forge 360 design tokens, from the brand kit.
+ * Primary: sky #4DB6FF, deep navy #1E3A8A. Neutrals: charcoal #111829, light gray #F1F5F9, white.
+ * Sky is a fill/accent colour only; it fails contrast as text on white, so text uses navy.
+ */
+@theme {
+  --color-navy: #1e3a8a;
+  --color-navy-700: #172e6e;
+  --color-navy-900: #0d1b4b;
+  --color-sky: #4db6ff;
+  --color-sky-300: #8fd0ff;
+  --color-sky-soft: #e6f4ff;
+  --color-charcoal: #111829;
+
+  --color-ink: #111829;
+  --color-ink-soft: #3b4660;
+  --color-muted: #66728a;
+  --color-line: #dbe2ec;
+  --color-paper: #f1f5f9;
+  --color-card: #ffffff;
+
+  --color-danger: #b42318;
+  --color-danger-soft: #fef3f2;
+
+  --color-tier-t0: #55607a;
+  --color-tier-t0-bg: #eef1f5;
+  --color-tier-t1: #155fb8;
+  --color-tier-t1-bg: #e0f0ff;
+  --color-tier-t2: #0f7a43;
+  --color-tier-t2-bg: #dcf5e7;
+
+  --font-display: var(--font-league-spartan), "Arial Narrow", system-ui, sans-serif;
+  --font-sub: var(--font-montserrat), system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --shadow-card: 0 1px 2px rgb(17 24 41 / 0.04), 0 12px 32px -16px rgb(30 58 138 / 0.18);
+  --shadow-lift: 0 2px 4px rgb(17 24 41 / 0.06), 0 24px 48px -20px rgb(13 27 75 / 0.35);
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-rise: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+  }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: var(--color-sky);
+  color: var(--color-charcoal);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-sky);
+  outline-offset: 2px;
+}
+
+@layer components {
+  /* Buttons: brand kit "Primary" (filled navy) and "Secondary" (navy outline). */
+  .btn-primary,
+  .btn-ghost,
+  .btn-sky,
+  .btn-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 font-sub text-[13px] font-semibold uppercase tracking-[0.08em] transition duration-200 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-navy text-white shadow-[0_8px_20px_-10px_rgb(30_58_138/0.7)] hover:bg-navy-700 hover:-translate-y-px;
+  }
+  .btn-ghost {
+    @apply border-[1.5px] border-navy bg-white text-navy hover:bg-sky-soft;
+  }
+  /* For dark (navy) surfaces. */
+  .btn-sky {
+    @apply bg-sky text-charcoal hover:bg-sky-300 hover:-translate-y-px;
+  }
+  .btn-light {
+    @apply border-[1.5px] border-white/40 text-white hover:border-white hover:bg-white/10;
+  }
+
+  .field {
+    @apply w-full rounded-lg border border-line bg-white px-4 py-3 text-base text-ink transition placeholder:text-muted focus:border-navy focus:ring-4 focus:ring-sky/25 focus:outline-none;
+  }
+  .label {
+    @apply mb-1.5 block font-sub text-[13px] font-semibold text-ink-soft;
+  }
+  .panel {
+    @apply rounded-2xl border border-line bg-card p-5 shadow-(--shadow-card) sm:p-6;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full border border-line bg-white px-3 py-1 text-xs font-medium text-ink-soft transition;
+  }
+  .chip-on {
+    @apply !border-navy !bg-navy !text-white;
+  }
+
+  /* Brand kit "Primary heading" label: a parallelogram tag with an angled cut. */
+  .tag {
+    @apply inline-block bg-navy py-1.5 pr-6 pl-3 font-sub text-[11px] font-semibold uppercase tracking-[0.16em] text-white;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+  }
+  .tag-sky {
+    @apply bg-sky text-charcoal;
+  }
+
+  .eyebrow {
+    @apply font-sub text-xs font-semibold uppercase tracking-[0.18em] text-navy;
+  }
+
+  .alert {
+    @apply rounded-lg border-l-4 border-danger bg-danger-soft px-4 py-3 text-sm text-danger;
+  }
+  .notice {
+    @apply rounded-lg border-l-4 border-sky bg-sky-soft px-4 py-3 text-sm text-navy;
+  }
+
+  /* Dot texture from the brand kit. */
+  .dots {
+    background-image: radial-gradient(currentColor 1.4px, transparent 1.6px);
+    background-size: 14px 14px;
+  }
+}
+
+@media print {
+  header, footer, .no-print { display: none !important; }
+  body { background: #fff; }
+  .panel { box-shadow: none; break-inside: avoid; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}

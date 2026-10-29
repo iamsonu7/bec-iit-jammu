@@ -6,6 +6,9 @@ entrepreneurship club (E-Cell) of IIT Jammu.
 Plain HTML, CSS and JavaScript. No build step, no dependencies, no npm install.
 Open `index.html` in a browser and it works.
 
+> **Forge 360** lives in [`forge360/`](forge360/README.md). It's a separate Next.js +
+> Supabase app; the notes below are about the static club website.
+
 ---
 
 ## Quick start
