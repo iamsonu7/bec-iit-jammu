@@ -71,7 +71,7 @@ From the brand kit, defined as tokens in `src/app/globals.css`:
 | `paper` | `#F1F5F9` | Page background |
 
 Fonts: **League Spartan** (headlines), **Montserrat SemiBold** (labels, buttons), **Inter** (body),
-loaded with `next/font`. Brand elements live in `src/components/brand.tsx`: logo, curved trail,
+bundled from npm (`@fontsource`), so builds never fetch from Google. Brand elements live in `src/components/brand.tsx`: logo, curved trail,
 section title with rule-and-dots, plus `.tag` (parallelogram heading) and `.dots` (texture) classes.
 
 ---
